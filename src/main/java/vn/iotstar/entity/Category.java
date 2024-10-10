@@ -81,4 +81,15 @@ public class Category implements Serializable {
         video.setCategory(null);
         return video;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryId=" + categoryId +
+                ", categoryname='" + categoryname + '\'' +
+                ", images='" + images + '\'' +
+                ", status=" + status +
+                ", videos=" + videos +
+                '}';
+    }
 }
