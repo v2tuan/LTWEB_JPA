@@ -39,12 +39,7 @@ public class CategoryController extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         if(url.contains("categories")){
-            System.out.println(11111111);
             List<Category> list = cateService.findAll();
-            System.out.println(11111111);
-            for (Category category : list) {
-                System.out.println(category);
-            }
             req.setAttribute("listcase", list);
             req.getRequestDispatcher("/views/admin/category-list.jsp").forward(req, resp);
         }
@@ -86,7 +81,7 @@ public class CategoryController extends HttpServlet {
                 uploadDir.mkdir();
             }
             try {
-                Part part = req.getPart("images");
+                Part part = req.getPart("image");
                 if(part.getSize()>0) {
                     String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
@@ -128,7 +123,7 @@ public class CategoryController extends HttpServlet {
                 uploadDir.mkdir();
             }
             try {
-                Part part = req.getPart("images");
+                Part part = req.getPart("image");
                 if(part.getSize()>0) {
                     String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
                     //đổi tên file

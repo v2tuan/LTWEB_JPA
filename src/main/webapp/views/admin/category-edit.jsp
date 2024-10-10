@@ -12,12 +12,12 @@
   <label for="categoryname">Category name:</label><br>
   <input type="text" id="categoryname" name="categoryname" value="${cate.categoryname}"><br>
   <label for="image">Image:</label><br>
-<%--  <c:if test="${cate.images.substring(0, 5) != 'https'}">--%>
+  <c:if test="${cate.images.substring(0, 5) != 'https'}">
     <c:url value="/image?fname=${cate.images}" var="imgUrl"></c:url>
-<%--  </c:if>--%>
-<%--  <c:if test="${cate.images.substring(0, 5) == 'https'}">--%>
-<%--    <c:url value="${cate.images}" var="imgUrl"></c:url>--%>
-<%--  </c:if>--%>
+  </c:if>
+  <c:if test="${cate.images.substring(0, 5) == 'https'}">
+    <c:url value="${cate.images}" var="imgUrl"></c:url>
+  </c:if>
   <img id = "images" height="200" width="200" src="${imgUrl}" />
   <input type="file" onchange="chooseFile(this)" id="image" name="image" value="${cate.images}"><br><br>
   <label for="status">Status:</label><br>
